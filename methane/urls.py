@@ -2,7 +2,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from django.conf import  settings
-from main.views import PlumeListAPI, PlumeInfoAPI, PlumImageAPI
+from main.views import PlumeListAPI, PlumeInfoAPI, PlumImageAPI, get_data
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -29,6 +29,7 @@ urlpatterns = [
     path('main/plume/', PlumImageAPI, name='甲烷图片获取'),
 
     path('main/plumelist/',PlumeListAPI,name='甲烷坐标获取'),
+    # path('main/getdata/',get_data,name='数据获取'),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
                                                                                            document_root=settings.MEDIA_ROOT)  # 媒体文件路径

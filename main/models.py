@@ -2,6 +2,8 @@ from django.db import models
 
 
 class Methane(models.Model):
+    name = models.CharField(max_length=100, verbose_name='甲烷id')
+
     # 甲烷浓度热力图
     concentration_image = models.ImageField(upload_to='Methane/', verbose_name='甲烷浓度热力图',
                                             blank=True, null=True)
