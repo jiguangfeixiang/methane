@@ -9,10 +9,10 @@ import os
 import  re
 import  queue
 import base64
-data_queue=queue.Queue(maxsize=50)
+data_queue=queue.Queue()
 image_dir = "results/result3/"
 pattern = re.compile(r"""
-               A_(?P<id>\w+)_
+               (?P<letter>\w+)_(?P<id>\w+)_
                sza_(?P<sza>\d+\.\d+)_
                vza_(?P<vza>\d+\.\d+)_
                u10_(?P<u10>\d+\.\d+)_
@@ -22,19 +22,32 @@ pattern = re.compile(r"""
                maxCon_(?P<maxCon>\d+\.\d+)
            """, re.VERBOSE)
 def parse_image(dir):
+    # total_files = 0  # 用于统计目录下的文件总数
+    # parsed_files = 0  # 用于统计成功解析的文件数
+    # queued_files = 0  # 用于统计成功放入队列的文件数
     # 解析图片目录，返回图片列表
     for file in os.listdir(dir):
-
+        # total_files += 1  # 统计每个文件
         match = pattern.search(file)
         filepath=f"{image_dir}{file}"
         with open(filepath,"rb") as f:
             imgdata = base64.b64encode(f.read()).decode("utf-8")
+        # parsed_files += 1  # 成功解析的文件数
         if match:
             info=match.groupdict()
             item= {"id": info["id"], "filename": file, "info": info, "imgdata":imgdata}
             if data_queue.full():
+                print('队列已满')
                 data_queue.get()
             data_queue.put(item)
+            # queued_files+=1
+        else:
+            print(f"文件 {file} 无法解析")
+        # 打印统计信息
+        # print(f"总文件数: {total_files}")
+        # print(f"成功解析的文件数: {parsed_files}")
+        # print(f"成功放入队列的文件数: {queued_files}")
+        # print(f"当前队列大小: {data_queue.qsize()}")
 
 def ai_task():
     count=0
@@ -80,3 +93,16 @@ def start():
         data.append(item)
     # print(data)
     return jsonify(data)
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    start_data_thread()
+    app.run(debug=True,port=8087)

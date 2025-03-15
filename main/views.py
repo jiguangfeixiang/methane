@@ -33,7 +33,7 @@ def get_data():
                     f.write(imgdata)
                 # print("保存成功")
 
-
+                print(data['id'])
                 methane_data, created = Methane.objects.update_or_create(
                     name=data['id'],
                     defaults={
