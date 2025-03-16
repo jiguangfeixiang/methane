@@ -115,7 +115,7 @@ DATETIME_FORMAT = 'Y-m-d H:i:s'
 TIME_ZONE = 'Asia/Shanghai'
 USE_TZ = False
 # 去掉默认Logo或换成自己Logo链接
-SIMPLEUI_LOGO = 'http://10.128.148.216:8000/media/jiguangfeixiang.jpg'
+SIMPLEUI_LOGO = 'http://127.0.0.1:8000/media/jiguangfeixiang.jpg'
 
 USE_I18N = True
 
