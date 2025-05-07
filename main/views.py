@@ -54,8 +54,8 @@ def get_data():
                     }
                     )
         except Exception as e:
-            print("获取数据失败:",e)
-
+            # print("获取数据失败:",e)
+            continue
 
 
 @swagger_auto_schema(method='get', tags=['羽流中心点'], operation_summary="该接口用于获取地图上的羽流标点",

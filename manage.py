@@ -4,6 +4,7 @@ import json
 import os
 import sys
 
+from methane.settings import BASE_DIR
 
 
 def main():
@@ -21,4 +22,7 @@ def main():
 
 
 if __name__ == '__main__':
+
+
+
     main()

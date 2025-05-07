@@ -1,6 +1,11 @@
+import io
+
+from django.core.exceptions import ValidationError
+from django.core.files.base import ContentFile
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
-
+from PIL import Image
 class Methane(models.Model):
     name = models.CharField(max_length=100, verbose_name='甲烷id')
 
@@ -13,7 +18,9 @@ class Methane(models.Model):
 
     # 甲烷最高浓度值
     max_concentration = models.FloatField(verbose_name='甲烷最高浓度值', null=True, blank=True)
-
+    class Meta:
+        verbose_name = '甲烷热力图'
+        verbose_name_plural = verbose_name
 
 # Create your models here.
 class Area(models.Model):
@@ -36,3 +43,28 @@ class Area(models.Model):
     methane = models.ForeignKey(Methane, on_delete=models.CASCADE, verbose_name='甲烷', null=True, blank=True)
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = '区域甲烷信息查看'
+        verbose_name_plural = verbose_name
+from django.core.files.storage import FileSystemStorage
+def validate_filename_length(value):
+    if len(value.name) < 30:
+        raise ValidationError("格式错误！ 请输入[13,75,75]尺寸的哨兵2号遥感图像")
+
+class MethaneUploadImg(models.Model):
+    upload_image = models.ImageField(
+        upload_to='methane/MethaneUploadImg/',
+        validators=[
+            FileExtensionValidator(allowed_extensions=['tiff', 'tif'],
+                                   message="格式错误！ 请输入[13,75,75]尺寸的哨兵2号遥感图像"
+                                ),
+            validate_filename_length
+        ],
+        max_length=255,
+        verbose_name="上传图像"
+    )
+    show_image = models.ImageField(upload_to='show/', null=True, blank=True, max_length=255)
+    info = models.JSONField(null=True, blank=True)
+    class Meta:
+        verbose_name = '上传甲烷文件'
+        verbose_name_plural = verbose_name
