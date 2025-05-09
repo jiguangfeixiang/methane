@@ -14,10 +14,7 @@ models_appkey = {
     "Deepseek V3-0324": "FAKdpKcu",
 }
 
-#从原项目获取，secretId违反github提交检查
 
-config = {
-}
 @api_view(['GET'])
 def GetWsToken(request):
     model_type = request.query_params.get('model_type')
