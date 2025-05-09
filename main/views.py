@@ -10,6 +10,9 @@ from rest_framework.response import Response
 from main.models import Area, Methane
 from serializers import AreaSerializer
 import base64
+
+from .chatbox import *
+
 # Create your views here.
 url = "http://127.0.0.1:8087/getdata"
 

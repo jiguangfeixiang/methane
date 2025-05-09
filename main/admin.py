@@ -18,7 +18,7 @@ admin.site.site_title = '甲烷管理'
 admin.site.site_header = '甲烷后台'
 admin.site.index_title = '甲烷管理'
 
-img_url = "http://192.168.241.79:8000/methaneImg"
+img_url = "http://localhost:5000/methaneImg"
 write_dir="media\Methane\MethaneUploadImg"
 show_dir = "media\Methane\show"
 write_dir=os.path.join(BASE_DIR, write_dir)

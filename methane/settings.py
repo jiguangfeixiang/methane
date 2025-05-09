@@ -80,7 +80,11 @@ DATABASES = {
         'USER': 'root',  # 账号
         'PASSWORD': '',  # 密码
         'HOST': 'localhost', #
+<<<<<<< HEAD
         'PORT': '3306',
+=======
+        'PORT': '9080',
+>>>>>>> fad851d (init proj.)
         'OPTIONS': {
             "init_command": "SET foreign_key_checks = 0;",
         }
@@ -124,7 +128,7 @@ USE_I18N = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 MEDIA_URL = '/media/'  # 访问媒体文件的URL前缀
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/methane')  # 媒体文件存储目录
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/Methane')  # 媒体文件存储目录
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 'static'可以根据你的偏好更改
 # Default primary key field type

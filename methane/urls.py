@@ -2,7 +2,11 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from django.conf import  settings
+<<<<<<< HEAD
 from main.views import PlumeListAPI, PlumeInfoAPI, PlumImageAPI, get_data
+=======
+from main.views import PlumeListAPI, PlumeInfoAPI, PlumImageAPI, get_data, GetWsToken
+>>>>>>> fad851d (init proj.)
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -30,6 +34,7 @@ urlpatterns = [
 
     path('main/plumelist/',PlumeListAPI,name='甲烷坐标获取'),
     # path('main/getdata/',get_data,name='数据获取'),
-
+    path('getchatboxtoken/', GetWsToken,name='GetWsToken获取'),
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
                                                                                            document_root=settings.MEDIA_ROOT)  # 媒体文件路径
