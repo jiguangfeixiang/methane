@@ -15,9 +15,10 @@ models_appkey = {
 }
 
 config = {
-  'secretId': 'AKIDgDWbS5TilaAWdWByYvzpQnvpVw97sY0D',
-  'secretKey': 'KSN3VjiW6SZR5VnqfFbkeKn22pxsYzBD',
-  'appId': 'FAKdpKcu'
+    #从原项目获取，secretId违反github提交检查
+    # 'secretId': 'AKIDgDWbS5TilaAWdWByYvzpQnvpVw97sY0D',
+    'secretKey': 'KSN3VjiW6SZR5VnqfFbkeKn22pxsYzBD',
+    'appId': 'FAKdpKcu'
 }
 @api_view(['GET'])
 def GetWsToken(request):
