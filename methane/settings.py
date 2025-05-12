@@ -78,8 +78,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_methane',  # 数据库名称
         'USER': 'root',  # 账号
-        'PASSWORD': '',  # 密码
-        'HOST': 'localhost', #
+        'PASSWORD': 'methane123',  # 密码
+        'HOST': 'mysql-db', #
         'PORT': '3306',
         'OPTIONS': {
             "init_command": "SET foreign_key_checks = 0;",
@@ -115,7 +115,7 @@ DATETIME_FORMAT = 'Y-m-d H:i:s'
 TIME_ZONE = 'Asia/Shanghai'
 USE_TZ = False
 # 去掉默认Logo或换成自己Logo链接
-SIMPLEUI_LOGO = 'http://127.0.0.1:8000/media/jiguangfeixiang.jpg'
+SIMPLEUI_LOGO = '/media/jiguangfeixiang.jpg'
 
 USE_I18N = True
 
@@ -124,7 +124,7 @@ USE_I18N = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 MEDIA_URL = '/media/'  # 访问媒体文件的URL前缀
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/methane')  # 媒体文件存储目录
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/Methane')  # 媒体文件存储目录
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 'static'可以根据你的偏好更改
 # Default primary key field type
