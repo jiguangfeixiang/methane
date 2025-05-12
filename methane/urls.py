@@ -2,11 +2,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from django.conf import  settings
-<<<<<<< HEAD
-from main.views import PlumeListAPI, PlumeInfoAPI, PlumImageAPI, get_data
-=======
 from main.views import PlumeListAPI, PlumeInfoAPI, PlumImageAPI, get_data, GetWsToken
->>>>>>> fad851d (init proj.)
 
 schema_view = get_schema_view(
     openapi.Info(

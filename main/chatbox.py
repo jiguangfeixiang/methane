@@ -14,7 +14,11 @@ models_appkey = {
     "Deepseek V3-0324": "FAKdpKcu",
 }
 
-
+config = {
+    'secretId': 'AKIDgDWbS5TilaAWdWByYvzpQnvpVw97sY0D',
+    'secretKey': 'KSN3VjiW6SZR5VnqfFbkeKn22pxsYzBD',
+    'appId': 'FAKdpKcu'
+}
 @api_view(['GET'])
 def GetWsToken(request):
     model_type = request.query_params.get('model_type')
