@@ -21,14 +21,14 @@ class MainConfig(AppConfig):
         #     print(f"读取 TIFF 文件失败：{e}")
 
         # 在这里启动线程
-        def getdata_threading():
-            task_data = threading.Thread(target=self.start_get_data_task)
-            task_data.daemon = True
-            task_data.start()
+        # def getdata_threading():
+        #     task_data = threading.Thread(target=self.start_get_data_task)
+        #     task_data.daemon = True
+        #     task_data.start()
 
         # 调用线程任务
-        getdata_threading()
+        # getdata_threading()
 
-    def start_get_data_task(self):
-        from main.views import get_data
-        get_data()
+    # def start_get_data_task(self):
+    #     from main.views import get_data
+    #     get_data()
